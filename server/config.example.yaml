@@ -1,0 +1,15 @@
+# qmt 开源信号中转服务端配置
+# 复制为 config.yaml 后修改
+
+server:
+  host: 0.0.0.0      # 监听地址, 公网部署用 0.0.0.0
+  port: 8080         # 监听端口, 需与客户端 server_url 中的端口一致
+
+security:
+  # 【最重要】加密盐, 必须与客户端"加密盐"(salt) 填写的值完全一致
+  # 客户端用它以 HS256 签发 JWT, 服务端用它校验
+  token_salt: "change-me-to-a-long-random-secret"
+
+forward:
+  ack_timeout: 5     # 等待客户端 ack 的秒数, 超时则重发
+  max_retries: 3     # 未收到 ack 时的最大重发次数 (对应官方"重发机制")
