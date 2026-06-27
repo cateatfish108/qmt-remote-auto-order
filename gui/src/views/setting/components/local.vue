@@ -77,7 +77,9 @@ const remoteStoreDic = computed(() => {
 const isWSConnectedState = computed(() => useRemoteStore().connectState)
 
 const connectionAction = () => {
-  testConnect(params.qmtPath).then((res) => {
+  // 必须传 client_type=2 (QMT), 否则后端 test_connect 走 else 分支返回 None,
+  // 前端读取 res.is_connect 会抛 Cannot read properties of null
+  testConnect(params.qmtPath, 2).then((res) => {
     if (res.is_connect) {
       if (res.account_arr.length == 0) {
         ElMessage({
