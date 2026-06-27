@@ -182,7 +182,9 @@ const backAction = async () => {
 }
 
 const chooseDirectoryAction = async () => {
-  const res = await chooseDirectory()
+  // client_type=2 表示 QMT, 后端据此校验 userdata_mini 目录;
+  // 不传则后端按 None 处理, 会错误地去找同花顺的 xiadan.exe 导致校验失败
+  const res = await chooseDirectory(2)
   if (res[0] == true) {
     ElMessage.success('该目录通过验证')
     params.qmtPath = res[1]
