@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+cookie.txt
+selectors.json
+dump_page_*.html
+*.csv

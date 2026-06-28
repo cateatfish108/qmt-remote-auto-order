@@ -1,0 +1,12 @@
+{
+  "_说明": "复制为 selectors.json 后, 按聚宽真实页面结构修改。每个字段是 CSS 选择器候选列表, 工具按顺序命中第一个有结果的。用浏览器 F12 检查元素获取真实选择器。",
+  "item": ["div.community-list-item", "li.post-item"],
+  "title_link": ["a.title", "h3 a", "a[href*='community/detail']"],
+  "author": [".author", ".user-name"],
+  "publish_time": [".time", ".date"],
+  "views": [".view", ".views"],
+  "comments": [".comment", ".comments"],
+  "likes": [".like", ".likes"],
+  "summary": [".summary", ".desc"],
+  "detail_body": ["div.article-content", "div.post-content", "article"]
+}
